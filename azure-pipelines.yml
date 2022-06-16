@@ -39,3 +39,25 @@ stages:
             ArtifactName: 'drop'
             publishLocation: 'Container'
 
+       - task: DownloadBuildArtifacts@1
+         inputs:
+           buildType: 'current'
+           downloadType: 'single'
+           artifactName: 'drop'
+           itemPattern: '''**/*.zip'''
+           downloadPath: '$(System.ArtifactsDirectory)'
+
+  - stage: Deploy
+    displayName: 'Deploy To Dev'
+    jobs:
+      - deployment: 
+        pool:
+            vmImage: 'ubuntu-latest'
+        environment: 'Dev'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                
+                
+                
