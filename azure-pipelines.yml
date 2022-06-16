@@ -10,7 +10,7 @@ trigger:
 stages:
   - stage: Build
     jobs: 
-        - job: BuildWebApp
+      - job: BuildWebApp
 
           variables:
             buildConfiguration: 'Release'
