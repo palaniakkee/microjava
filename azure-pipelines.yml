@@ -12,12 +12,13 @@ stages:
     jobs: 
       - job: BuildWebApp
 
-          variables:
+        variables:
             buildConfiguration: 'Release'
 
-          pool:
-            vmImage: 'ubuntu-latest'
-          steps:
+        pool:
+          vmImage: 'ubuntu-latest'
+        
+        steps:
             
           - task: Maven@3
             inputs:
